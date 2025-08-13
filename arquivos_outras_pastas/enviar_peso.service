@@ -6,9 +6,9 @@ After=network.target
 
 [Service]
 # Comando para executar o script Python
-ExecStart=/usr/bin/python3 /home/pi/Desktop/balanca/enviar_peso.py
+ExecStart=/usr/bin/python3 /home/pi/balanca/enviar_peso.py
 # Diretório de trabalho do serviço
-WorkingDirectory=/home/pi/Desktop/balanca
+WorkingDirectory=/home/pi/balanca
 # Saída padrão (stdout) será exibida no terminal ou logs do systemd
 StandardOutput=inherit
 # Erros padrão (stderr) serão exibidos no terminal ou logs do systemd
