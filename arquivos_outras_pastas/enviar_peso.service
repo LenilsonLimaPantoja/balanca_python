@@ -1,4 +1,4 @@
-[Unit]
+Unit]
 Description=Serviço para enviar peso automaticamente ao iniciar
 After=network.target
 
