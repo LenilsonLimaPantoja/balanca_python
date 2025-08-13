@@ -1,17 +1,18 @@
 import time
 from hx711 import HX711
 
-# Inicializa HX711 nos pinos DOUT=5 e SCK=6
+# Inicializa HX711
 hx = HX711(5, 6)
 hx.set_reference_unit(103.33)
 hx.reset()
 hx.power_up()
 
-print("[INFO] Sensor pronto para tarar.")
+print("[INFO] Coloque o objeto/recipiente que deseja tarar e pressione Enter")
+input("Pressione Enter para realizar a tara...")
 
-# Executa tara com várias amostras para maior precisão
-tare_value = hx.tare(times=20)  # 20 amostras para estabilidade
-print(f"[INFO] Tara concluída. Valor de offset registrado: {tare_value}")
+# Executa a tara
+hx.tare()
+print("[INFO] Tara concluída! O peso do objeto agora é considerado zero.")
 
-# Mantém sensor ativo alguns segundos (opcional)
+# Apenas mantém sensor ativo por alguns segundos (opcional)
 time.sleep(2)
