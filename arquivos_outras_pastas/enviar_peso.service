@@ -1,23 +1,14 @@
 [Unit]
-# Descrição do serviço
 Description=Serviço para enviar peso automaticamente ao iniciar
-# Define que o serviço só será iniciado depois que a rede estiver disponível
 After=network.target
 
 [Service]
-# Comando para executar o script Python
-ExecStart=/usr/bin/python3 /home/pi/balanca/enviar_peso.py
-# Diretório de trabalho do serviço
-WorkingDirectory=/home/pi/balanca
-# Saída padrão (stdout) será exibida no terminal ou logs do systemd
+ExecStart=/usr/bin/python3 /home/pi/Desktop/balanca/enviar_peso.py
+WorkingDirectory=/home/pi/Desktop/balanca
 StandardOutput=inherit
-# Erros padrão (stderr) serão exibidos no terminal ou logs do systemd
 StandardError=inherit
-# Reinicia o serviço automaticamente caso ele falhe
 Restart=always
-# Usuário que irá executar o serviço
 User=pi
 
 [Install]
-# Permite que o serviço seja iniciado automaticamente no boot
 WantedBy=multi-user.target
