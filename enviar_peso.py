@@ -6,8 +6,9 @@ import subprocess
 # Função para obter o serial único do Raspberry Pi
 def get_raspberry_serial():
     try:
-        # Comando para pegar o número de série da CPU
-        serial = subprocess.check_output("cat /proc/cpuinfo | grep Serial | cut -d ' ' -f 2", shell=True)
+        serial = subprocess.check_output(
+            "cat /proc/cpuinfo | grep Serial | cut -d ' ' -f 2", shell=True
+        )
         return serial.decode("utf-8").strip()
     except Exception as e:
         print(f"[ERRO] Não foi possível obter o serial do Raspberry Pi: {e}")
@@ -24,11 +25,10 @@ hx = HX711(5, 6)
 hx.set_reference_unit(103.33)  # Valor calibrado manualmente
 print("[INFO] Unidade de referência definida: 103.33")
 
-# Reseta e faz tara
+# Reseta e liga o sensor (sem tara)
 hx.reset()
-print("[DEBUG] Sensor resetado.")
-hx.tare()
-print("[DEBUG] Tara concluída.")
+hx.power_up()
+print("[DEBUG] Sensor resetado e pronto. Não foi realizada tara.")
 
 print("[INFO] Balança pronta. Coloque o peso!")
 
