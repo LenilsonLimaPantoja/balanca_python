@@ -3,16 +3,17 @@ from hx711 import HX711
 
 # Inicializa HX711
 hx = HX711(5, 6)
-hx.set_reference_unit(103.33)
 hx.reset()
 hx.power_up()
+print("[INFO] Sensor pronto para tarar.")
 
-print("[INFO] Coloque o objeto/recipiente que deseja tarar e pressione Enter")
-input("Pressione Enter para realizar a tara...")
+# Aguarda o usuário colocar o objeto a ser tarado
+input("Coloque o objeto a ser tarado e pressione Enter...")
 
 # Executa a tara
 hx.tare()
-print("[INFO] Tara concluída! O peso do objeto agora é considerado zero.")
+print("[INFO] Tara concluída. Peso do objeto tarado agora é zero.")
 
-# Apenas mantém sensor ativo por alguns segundos (opcional)
-time.sleep(2)
+# Lê rapidamente para confirmar
+peso = hx.get_weight(5)
+print(f"[INFO] Peso lido após tara: {peso:.2f} g")
