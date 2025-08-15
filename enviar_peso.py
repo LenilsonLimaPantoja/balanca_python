@@ -60,7 +60,7 @@ while True:
         hx.power_up()
 
         # Aguarda antes da próxima leitura
-        time.sleep(5)
+        time.sleep(10)
 
     except (KeyboardInterrupt, SystemExit):
         print("\n[INFO] Programa interrompido pelo usuário.")
@@ -68,4 +68,4 @@ while True:
 
     except Exception as e:
         print(f"[ERRO] Falha geral: {e}")
-        time.sleep(5)
+        time.sleep(10)
