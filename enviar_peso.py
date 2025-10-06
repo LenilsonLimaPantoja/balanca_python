@@ -46,7 +46,7 @@ while True:
         }
 
         # URL da API
-        url = "http://api-pesagem.vercel.app/peso-caixa"
+        url = "https://api-pesagem-chi.vercel.app/peso-caixa"
 
         try:
             # Envia dados para API
